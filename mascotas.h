@@ -4,146 +4,131 @@ using namespace std;
 #include <string>
 using namespace std;
 
-class conejito{
+//clase Personaje
+
+class Personaje{
 private:
-    std::string razaCON;
-    std:: string nombreCON;
-    int lvlhambreCON;
-    int lvlafectoCON;
-
-public:
-    conejito();
-    conejito(std::string raCON, std::string nomCON, int hamCON, int afecCON): razaCON(raCON), nombreCON(nomCON), lvlhambreCON(hamCON), lvlafectoCON(afecCON){};
-
-    std::string get_razaCON();
-    std:: string get_nombreCON();
-    int get_lvlhambreCON();
-    int get_lvlafectoCON();
-
-    void set_razaCON(std::string );
-    void set_nombreCON(std::string );
-    void set_lvlhambreCON(int );
-    void set_lvlafectoCON(int );
-};
-
-class gatito{
-private:
-    std::string razaGAT;
-    std:: string nombreGAT;
-    int lvlhambreGAT;
-    int lvlafectoGAT;
-
-public:
-    gatito();
-    gatito(std::string raGAT, std::string nomGAT, int hamGAT, int afecGAT): razaGAT(raGAT), nombreGAT(nomGAT), lvlhambreGAT(hamGAT), lvlafectoGAT(afecGAT){};
-
-    std::string get_razaGAT();
-    std:: string get_nombreGAT();
-    int get_lvlhambreGAT();
-    int get_lvlafectoGAT();
-
-    void set_razaGAT(std::string );
-    void set_nombreGAT(std::string );
-    void set_lvlhambreGAT(int );
-    void set_lvlafectoGAT(int );
-};
-
-class perrito{
-private:
-    std::string razaPER;
     std:: string nombrePER;
-    int lvlhambrePER;
-    int lvlafectoPER;
+    int lvldanoPER;
+    int lvlvidaPER;
+    int lvlvelocidadPER;
 
 public:
-    perrtio();
-    perrito(std::string raPER, std::string nomPER, int hamPER, int afecPER): razaPER(raPER), nombrePER(nomPER), lvlhambrePER(hamPER), lvlafectoPER(afecPER){};
+    Personaje();
+    Personaje(std::string nomPER, int danPER, int vidPER, int velPER):\
+    nombrePER(nomPER), lvldanoPER(danPER), lvlvidaPER(vidPER), lvlvelocidadPER(velPER){};
 
-    std::string get_razaPER();
     std:: string get_nombrePER();
-    int get_lvlhambrePER();
-    int get_lvlafectoPER();
+    int get_lvldanoPER();
+    int get_lvlvidaPER();
+    int get_lvlvelocidadPER();
 
-    void set_razaPER(std::string );
     void set_nombrePER(std::string );
-    void set_lvlhambrePER(int );
-    void set_lvlafectoPER(int );
+    void set_lvldanoPER(int );
+    void set_lvlvidaPER(int );
+    void set_lvlvelocidadPER(int );
+};
+
+//clase Arma
+
+class Arma{
+private:
+    std::string tipoAR;
+    std:: string nombreAR;
+    int lvldanoAR;
+
+public:
+    Arma();
+    Arma(std::string tipAR, std::string nomAR, int danAR): tipoAR(tipAR), nombreAR(nomAR), lvldanoAR(danAR){};
+
+    std::string get_tipoAR();
+    std:: string get_nombreAR();
+    int get_lvldanoAR();
+
+    void set_tipoAR(std::string );
+    void set_nombreAR(std::string );
+    void set_lvldanoAR(int );
+};
+
+//clase Oponente
+
+class Oponente{
+private:
+    std:: string nombreOP;
+    int lvlvidaOP;
+    int lvldanoOP;
+
+public:
+    Oponente();
+    Oponente(std::string nomOP, int vidOP, int danOP): nombreOP(nomOP), lvlvidaOP(vidOP), lvldanoOP(danOP){};
+
+    std:: string get_nombreOP();
+    int get_lvlvidaOP();
+    int get_lvldanoOP();
+
+    void set_nombreOP(std::string );
+    void set_lvlvidaOP(int );
+    void set_lvldanoOP(int );
 };
 
 
-//funciones conejito
-std::string conejito::get_razaCON(){
-    return razaCON;
-}
+//funciones Personaje
 
-std:: string conejito::get_nombreCON(){
-    return nombreCON;
-}
-
-int conejito::get_lvlhambreCON(){
-    return lvlhambreCON;
-}
-
-int conejito::get_lvlafectoCON(){
-    return lvlafectoCON;
-}
-
-void conejito::set_razaCON(std::string raCON){
-    razaCON = raCON;
-}
-
-void conejito::set_nombreCON(std::string nomCON){
-    nombreCON = nomCON;
-}
-
-//funciones gatito
-
-std::string gatito::get_razaGAT(){
-    return razaGAT;
-}
-
-std:: string gatito::get_nombreGAT(){
-    return nombreGAT;
-}
-
-int gatito::get_lvlhambreGAT(){
-    return lvlhambreGAT;
-}
-
-int gatito::get_lvlafectoGAT(){
-    return lvlafectoGAT;
-}
-
-void gatito::set_razaGAT(std::string ra){
-    razaGAT = ra;
-}
-
-void gatito::set_nombreGAT(std::string nom){
-    nombreGAT = nom;
-}
-
-//funciones perrito
-
-std::string perrito::get_razaPER(){
-    return razaPER;
-}
-
-std:: string perrito::get_nombrePER(){
+std:: string Personaje::get_nombrePER(){
     return nombrePER;
 }
 
-int perrito::get_lvlhambrePER(){
-    return lvlhambrePER;
+int Personaje::get_lvldanoPER(){
+    return lvldanoPER;
 }
 
-int perrito::get_lvlafectoPER(){
-    return lvlafectoPER;
+int Personaje::get_lvlvidaPER(){
+    return lvlvidaPER;
 }
 
-void perrito::set_razaPER(std::string ra){
-    razaPER = ra;
+void Personaje::set_nombrePER(std::string nomPER){
+    nombrePER = nomPER;
 }
 
-void perrito::set_nombrePER(std::string nom){
-    nombrePER = nom;
+//funciones Arma
+
+std::string Arma::get_tipoAR(){
+    return tipoAR;
 }
+
+std:: string Arma::get_nombreAR(){
+    return nombreAR;
+}
+
+int Arma::get_lvldanoAR(){
+    return lvldanoAR;
+}
+
+void Arma::set_tipoAR(std::string tipAR){
+    tipoAR = tipAR;
+}
+
+void Arma::set_nombreAR(std::string nomAR){
+    nombreAR = nomAR;
+}
+
+//funciones Oponente
+
+std:: string Oponente::get_nombreOP(){
+    return nombreOP;
+}
+
+int Oponente::get_lvlvidaOP(){
+    return lvlvidaOP;
+}
+
+int Oponente::get_lvldanoOP(){
+    return lvldanoOP;
+}
+
+void Oponente::set_nombreOP(std::string nomOP){
+    nombreOP = nomOP;
+}
+
+//Se cambio la idea de proyecto para adaptarlo a lo que se vera en el curso
+//Por eso faltan declarar clases y funciones que estan en el UML
