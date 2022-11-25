@@ -4,6 +4,31 @@ using namespace std;
 #include <string>
 using namespace std;
 
+//clase Juego
+
+class Juego{
+private:
+    string nombreJUE;
+    Personaje guerreros;
+    Arma armas;
+    Oponente npc;
+public:
+    Juego();
+    Juego(std::string nombreJUE, Personaje, Arma, Oponente);
+
+    std:: string get_nombreJUE();
+    int get_guerreros();
+    int get_armas();
+    int get_npc();
+
+    void set_nombreJUE(std::string );
+    void set_guerreros(Personaje );
+    void set_armas(Arma );
+    void set_npc(Oponente );
+
+    std:: string startgame();
+};
+
 //clase Personaje
 
 class Personaje{
@@ -27,6 +52,37 @@ public:
     void set_lvldanoPER(int );
     void set_lvlvidaPER(int );
     void set_lvlvelocidadPER(int );
+
+    int golpe();
+    int patada();
+};
+
+//clase Mago
+
+class Mago: public Personaje{
+public:
+    Mago(std::string nomPER):Personaje(nomPER, 20, 50, 2){};
+
+    int curar();
+    int hechizo();
+};
+
+//clase Godin
+
+class Caballero: public Personaje{
+public:
+     Caballero(std::string nomPER):Personaje(nomPER, 30, 100, 3){};
+
+    int ataque();
+};
+
+//clase Godin
+
+class Godin: public Personaje{
+public:
+    Godin(std::string nomPER):Personaje(nomPER, 50, 40, 1){};
+
+    int resiliencia();
 };
 
 //clase Arma
@@ -69,6 +125,8 @@ public:
     void set_nombreOP(std::string );
     void set_lvlvidaOP(int );
     void set_lvldanoOP(int );
+
+    int ataque();
 };
 
 
@@ -88,6 +146,18 @@ int Personaje::get_lvlvidaPER(){
 
 void Personaje::set_nombrePER(std::string nomPER){
     nombrePER = nomPER;
+}
+
+void Personaje::set_lvlvidaPER(int vidPER){
+    lvlvidaPER = vidPER;
+}
+
+void Personaje::set_lvldanoPER(int danPER){
+    lvldanoPER = danPER;
+}
+
+void Personaje::set_lvlvelocidadPER(int velPER){
+    lvlvelocidadPER = velPER;
 }
 
 //funciones Arma
@@ -130,5 +200,5 @@ void Oponente::set_nombreOP(std::string nomOP){
     nombreOP = nomOP;
 }
 
-//Se cambio la idea de proyecto para adaptarlo a lo que se vera en el curso
-//Por eso faltan declarar clases y funciones que estan en el UML
+//Aún falta terminar de codificar las funciones de algunas clases
+//Igualmente no logré entender por qué la parte de composición no funciona
