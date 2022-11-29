@@ -4,31 +4,6 @@ using namespace std;
 #include <string>
 using namespace std;
 
-//clase Juego
-
-class Juego{
-private:
-    string nombreJUE;
-    Personaje guerreros;
-    Arma armas;
-    Oponente npc;
-public:
-    Juego();
-    Juego(std::string nombreJUE, Personaje, Arma, Oponente);
-
-    std:: string get_nombreJUE();
-    int get_guerreros();
-    int get_armas();
-    int get_npc();
-
-    void set_nombreJUE(std::string );
-    void set_guerreros(Personaje );
-    void set_armas(Arma );
-    void set_npc(Oponente );
-
-    std:: string startgame();
-};
-
 //clase Personaje
 
 class Personaje{
@@ -129,6 +104,30 @@ public:
     int ataque();
 };
 
+//clase Juego
+
+class Juego{
+private:
+    string nombreJUE;
+    Personaje guerreros;
+    Arma armas;
+    Oponente npc;
+public:
+    Juego();
+    Juego(std::string nombreJUE, Personaje guerreros, Arma armas, Oponente npc);
+
+    std:: string get_nombreJUE();
+    int get_guerreros();
+    int get_armas();
+    int get_npc();
+
+    void set_nombreJUE(std::string );
+    void set_guerreros(Personaje );
+    void set_armas(Arma );
+    void set_npc(Oponente );
+
+    std:: string startgame();
+};
 
 //funciones Personaje
 
@@ -142,6 +141,10 @@ int Personaje::get_lvldanoPER(){
 
 int Personaje::get_lvlvidaPER(){
     return lvlvidaPER;
+}
+
+int Personaje::get_lvlvelocidadPER(){
+    return lvlvelocidadPER;
 }
 
 void Personaje::set_nombrePER(std::string nomPER){
