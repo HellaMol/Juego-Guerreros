@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include "guerrero.h"
+#include "oponente.h"
+#include "juego.h"
 
 std::string guerrero;
+std::string accion;
 
 int main(){
 
@@ -13,7 +16,7 @@ int main(){
     //godin
     Godin personaje_3("Diego");
 
-    Arma arma_1("arco", "destructora", 10);
+    //oponente
     Oponente oponente_1("Capitalismo", 130, 10);
 
     std::cout << "Bienvenidx a la aventura"<< endl;
@@ -45,7 +48,7 @@ int main(){
         std::cout << "Velocidad: "<<\
         personaje_2.get_lvlvelocidadPER()<< endl;
     }
-    if (guerrero == "c"){
+    else if (guerrero == "c"){
         std::cout << "Tienes el poder del guerrero "<<\
         personaje_3.get_nombrePER()<< endl;
         std::cout << "Las estadisticas de tu guerrero son:"<< endl;
@@ -54,9 +57,62 @@ int main(){
         std::cout << "Velocidad: "<<\
         personaje_3.get_lvlvelocidadPER()<< endl;
     }
-    std::cout << personaje_2.get_lvlvidaPER()<< endl;
-    std::cout << arma_1.get_lvldanoAR()<< endl;
-    std::cout << oponente_1.get_lvlvidaOP();
 
+    std::cout << "A lo largo de la historia, incontables guerreros han "<<\
+    endl<< "luchado contra un enemigo en comun. EL CAPITALISMO."<<\
+    endl<< "Derrotalo antes de que te derrote a ti."<< endl;
+
+    //while (oponente_1.get_lvlvidaOP() != 0 &&\
+    //personaje_1.get_lvlvidaPER() != 0 || personaje_2.get_lvlvidaPER()!= 0 ||\
+    //personaje_3.get_lvlvidaPER()!= 0)
+        std::cout << "Información de "<< oponente_1.get_nombreOP()<< endl;
+        std::cout << "Vida: "<< oponente_1.get_lvlvidaOP()<< endl;
+        std::cout << "Que haras?"<< endl;
+
+        if (guerrero == "a"){
+            std::cout << "1. Golpear al enemigo"<< endl;
+            std::cout << "2. Lanzar hechizo"<< endl;
+            if (personaje_1.get_lvlvidaPER() != 50){
+                std::cout << "3. Curarte"<< endl;
+            }
+        }
+        else if (guerrero == "b"){
+            std::cout << "1. Golpear al enemigo"<< endl;
+            std::cout << "2. Ataque especial"<< endl;
+        }
+        else if (guerrero == "c"){
+            std::cout << "1. Golpear al enemigo"<< endl;
+            std::cout << "2. Resiliencia"<< endl;
+        }
+
+        std::cin >> accion;
+
+        if (guerrero == "a"){
+            if (accion == "1"){
+                std::cout << "Golpeas al enemigo!!!"<< endl;
+            }
+            else if (accion == "2"){
+                std::cout << "Ataque especial!!!"<< endl;
+            }
+            else if (accion == "2"){
+                std::cout << "Has recuperado vida!!!"<< endl;
+            }
+        }
+        else if (guerrero == "b"){
+            if (accion == "1"){
+                std::cout << "Golpeas al enemigo!!!"<< endl;
+            }
+            else if (accion == "2"){
+                std::cout << "3. Curarte"<< endl;
+            }
+        }
+        else if (guerrero == "c"){
+            if (accion == "1"){
+                std::cout << "Golpeas al enemigo!!!"<< endl;
+            }
+            else if (accion == "2"){
+                std::cout << "Utilizas el poder de la resiliencia"<< endl;
+            }
+        }
 };
 
