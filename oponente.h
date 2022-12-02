@@ -6,69 +6,104 @@
  */
 
 /*
- * Clase Opoente contiene los métodos genéricos para el manejo de oponente.
- *
+ * Clase Oponente contiene los métodos genéricos para el manejo
+ * Y creacion del oponente
  */
 
 #ifndef OPONENTE_H
 #define OPONENTE_H
 
-#include "guerrero.h"
 #include <string>
 using namespace std;
 
-#include <string>
-using namespace std;
-
-//clase Oponente
-
+//Declaracion de clase Oponente
 class Oponente{
-
-    //Crear esqueleto de un oponente
     private:
-    std:: string nombreOP;
-    int lvlvidaOP;
-    int lvldanoOP;
+        //Declaracion variables de instancia
+        std:: string nombreOP;
+        int lvlvidaOP;
+        int lvldanoOP;
 
-public:
-    Oponente();
-    Oponente(std::string nomOP, int vidOP, int danOP): nombreOP(nomOP), lvlvidaOP(vidOP), lvldanoOP(danOP){};
+    public:
+        //Constructor
+        Oponente();
+        /*
+        * Constructor por default
+        *
+        * @param string nomOP, int vidOP, int danOP
+        * @return Objeto Oponente
+        */
+        Oponente(std::string nomOP, int vidOP, int danOP):\
+        nombreOP(nomOP), lvlvidaOP(vidOP), lvldanoOP(danOP){};
 
-    std:: string get_nombreOP();
-    int get_lvlvidaOP();
-    int get_lvldanoOP();
+        //Declaracion de metodos del objeto
+        std:: string get_nombreOP();
+        int get_lvlvidaOP();
+        int get_lvldanoOP();
 
-    void set_nombreOP(std::string );
-    void set_lvlvidaOP(int );
-    void set_lvldanoOP(int );
-    void bajarVIDA(int x);
-    int ataca(Personaje &p);
+        void set_nombreOP(std::string );
+        void set_lvlvidaOP(int );
+        void set_lvldanoOP(int );
 };
 
-//funciones Oponente
-
+/*
+ * getter nombre
+ *
+ * @param
+ * @return string: nombre del oponente
+*/
 std:: string Oponente::get_nombreOP(){
     return nombreOP;
 }
 
+/*
+ * getter vida
+ *
+ * @param
+ * @return string: vida del oponente
+*/
 int Oponente::get_lvlvidaOP(){
     return lvlvidaOP;
 }
 
+/*
+ * getter dano
+ *
+ * @param
+ * @return string: dano del oponente
+*/
 int Oponente::get_lvldanoOP(){
     return lvldanoOP;
 }
 
+/*
+ * setter vida
+ *
+ * @param string vidOP
+ * @return
+*/
+void Oponente::set_lvlvidaOP(int vidOP){
+    lvlvidaOP = vidOP;
+}
+
+/*
+ * setter nombre
+ *
+ * @param string nomOP
+ * @return
+*/
 void Oponente::set_nombreOP(std::string nomOP){
     nombreOP = nomOP;
 }
 
-void bajarVIDA(int x){
-    lvlvidaOP() = lvlvidaOP() - x;
+/*
+ * setter dano
+ *
+ * @param string danOP
+ * @return
+*/
+void Oponente::set_lvldanoOP(int danOP){
+    lvldanoOP = danOP;
 }
 
-int ataca(Personaje &p){
-    p.bajarVIDA(get_lvldanoOP());
-}
-
-#endif
+#endif // OPONENTE_H

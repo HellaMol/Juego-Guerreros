@@ -14,123 +14,226 @@
 
 #ifndef GUERRERO_H
 #define GUERRERO_H
-
+#include "oponente.h"
 #include<iostream>
 
-#include "oponente.h"
 #include <string>
 using namespace std;
 
-#include <string>
-using namespace std;
 
-//clase Personaje
-
-
-
+//Declaracion de clase Personaje
 class Personaje{
 
-    //Crear esqueleto de un personaje
     private:
-
-    std:: string nombrePER;
-    int lvldanoPER;
-    int lvlvidaPER;
-    int lvlvelocidadPER;
-
-    public:
-
-    //Personaje default
-    Personaje();
-    Personaje(std::string nomPER, int danPER, int vidPER, int velPER):\
-    nombrePER(nomPER), lvldanoPER(danPER), lvlvidaPER(vidPER), lvlvelocidadPER(velPER){};
-
-    //Funciones get
-    std:: string get_nombrePER();
-    int get_lvldanoPER();
-    int get_lvlvidaPER();
-    int get_lvlvelocidadPER();
-
-    //Funciones set
-    void set_nombrePER(std::string );
-    void set_lvldanoPER(int );
-    void set_lvlvidaPER(int );
-    void set_lvlvelocidadPER(int );
-    void bajarVIDA(int x);
-    void ataca(Personaje &p);
-
-    //Funciones
-    int golpe();
-
-};
-
-//clase Mago
-
-class Mago: public Personaje{
+        //Declaracion variables de instancia
+        std:: string nombrePER;
+        int lvldanoPER;
+        int lvlvidaPER;
+        int lvlvelocidadPER;
 
     public:
+        //Constructor
+        Personaje();
+        /*
+        * Constructor por default
+        *
+        * @param string nomPER, int danPER, int vidPER, int velPER
+        * @return Objeto Personaje
+        */
+        Personaje(std::string nomPER, int danPER, int vidPER, int velPER):\
+        nombrePER(nomPER), lvldanoPER(danPER), lvlvidaPER(vidPER),\
+        lvlvelocidadPER(velPER){};
 
-    Mago(std::string nomPER):Personaje(nomPER, 20, 50, 2){};
-    //Funciones
-    int curar();
-    int hechizo(Oponente &b);
+        //Declaracion de metodos del objeto
+        std:: string get_nombrePER();
+        int get_lvldanoPER();
+        int get_lvlvidaPER();
+        int get_lvlvelocidadPER();
+
+        void set_nombrePER(std::string );
+        void set_lvldanoPER(int );
+        void set_lvlvidaPER(int );
+        void set_lvlvelocidadPER(int );
 };
 
-//clase Godin
-
-class Caballero: public Personaje{
-
-    public:
-
-    Caballero(std::string nomPER):Personaje(nomPER, 30, 100, 3){};
-
-    //Funciones
-    int ataque();
-};
-
-//clase Godin
-
-class Godin: public Personaje{
-
-    public:
-
-    Godin(std::string nomPER):Personaje(nomPER, 50, 40, 1){};
-
-    //Funciones
-    int resiliencia();
-};
-
-//funciones Personaje
-
+/*
+ * getter nombre
+ *
+ * @param
+ * @return string: nombre del personaje
+*/
 std:: string Personaje::get_nombrePER(){
     return nombrePER;
 }
 
+/*
+ * getter dano
+ *
+ * @param
+ * @return string: dano del personaje
+*/
 int Personaje::get_lvldanoPER(){
     return lvldanoPER;
 }
 
+/*
+ * getter vida
+ *
+ * @param
+ * @return string: vida del personaje
+*/
 int Personaje::get_lvlvidaPER(){
     return lvlvidaPER;
 }
 
+/*
+ * getter velocidad
+ *
+ * @param
+ * @return string: velocidad del personaje
+*/
 int Personaje::get_lvlvelocidadPER(){
     return lvlvelocidadPER;
 }
 
+/*
+ * setter nombre
+ *
+ * @param string nomPER
+ * @return
+*/
 void Personaje::set_nombrePER(std::string nomPER){
     nombrePER = nomPER;
 }
 
+/*
+ * setter vida
+ *
+ * @param string vidPER
+ * @return
+*/
 void Personaje::set_lvlvidaPER(int vidPER){
     lvlvidaPER = vidPER;
 }
 
+/*
+ * setter dano
+ *
+ * @param string danPER
+ * @return
+*/
 void Personaje::set_lvldanoPER(int danPER){
     lvldanoPER = danPER;
 }
 
+/*
+ * setter velocidad
+ *
+ * @param string velPER
+ * @return
+*/
 void Personaje::set_lvlvelocidadPER(int velPER){
     lvlvelocidadPER = velPER;
 }
-#endif
+
+//Declaro objeto mago que hereda de Personaje
+class Mago: public Personaje{
+    public:
+        //Constructor
+        Mago();
+        /*
+        * Constructor por default
+        *
+        * @param string nomPER, int danPER , int vidPER, int velPER
+        * @return Objeto Mago
+        */
+        Mago(std::string nomPER):Personaje(nomPER, 40, 60, 2){};
+
+        //Metodos del obejto
+        void hechizaOP(Mago m, Oponente &o);
+};
+
+/*
+ * Metodo que recibe Mago m y Oponente o
+ * Guarda getter vida de Oponente y getter dano de Personaje
+ * como variables que se restan y se guardan en una variable que
+ * funciona como parametro del setter vida de Oponente
+ *
+ * @param Mago m, Oponente o
+ * @return
+*/
+void Mago::hechizaOP(Mago m, Oponente &o){
+    int vidaOP = o.get_lvlvidaOP();
+    int danoPER = m.get_lvldanoPER() + 10;
+    int vida_finOP = vidaOP - danoPER;
+    o.set_lvlvidaOP(vida_finOP);
+}
+
+//Declaro objeto caballero que hereda de Personaje
+class Caballero: public Personaje{
+    public:
+        //Constructor
+        Caballero();
+        /*
+        * Constructor por default
+        *
+        * @param string nomPER, int danPER, int vidPER, int velPER
+        * @return Objeto Caballero
+        */
+        Caballero(std::string nomPER):Personaje(nomPER, 30, 100, 3){};
+
+        //Metodos del obejto
+        void especialOP(Caballero c, Oponente &o);
+};
+
+/*
+ * Metodo que recibe Caballero c y Oponente o
+ * Guarda getter vida de Oponente y getter dano de Personaje
+ * como variables que se restan y se guardan en una variable que
+ * funciona como parametro del setter vida de Oponente
+ *
+ * @param Caballero c, Oponente o
+ * @return
+*/
+void Caballero::especialOP(Caballero c, Oponente &o){
+    int vidaOP = o.get_lvlvidaOP();
+    int danoPER = c.get_lvldanoPER() + 15;
+    int vida_finOP = vidaOP - danoPER;
+    o.set_lvlvidaOP(vida_finOP);
+}
+
+//Declaro objeto godin que hereda de Personaje
+class Godin: public Personaje{
+    public:
+        //Constructor
+        Godin();
+        /*
+        * Constructor por default
+        *
+        * @param string nomPER, int danPER, int vidPER, int velPER
+        * @return Objeto Godin
+        */
+        Godin(std::string nomPER):Personaje(nomPER, 50, 40, 1){};
+
+        //Metodos del obejto
+        void resilienciaOP(Godin g, Oponente &o);
+};
+
+/*
+ * Metodo que recibe Godin g y Oponente o
+ * Guarda getter vida de Oponente y getter dano de Personaje
+ * como variables que se restan y se guardan en una variable que
+ * funciona como parametro del setter vida de Oponente
+ *
+ * @param Godin g, Oponente o
+ * @return
+*/
+void Godin::resilienciaOP(Godin g, Oponente &o){
+    int vidaOP = o.get_lvlvidaOP();
+    int danoPER = g.get_lvldanoPER() + 30;
+    int vida_finOP = vidaOP - danoPER;
+    o.set_lvlvidaOP(vida_finOP);
+}
+
+
+#endif // GUERRERO_H
