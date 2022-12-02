@@ -14,4 +14,12 @@ Se debe tomar en cuenta que el programa corre en la consola y que tiene por leng
 #
 Correcciones
 
-Para este programa se hicieron varias correcciones
+Para este programa se hicieron varias correcciones, específicamente en los commits más recientes, donde se acredita:
+
+Diseño clases sencillas completas (con todos los atributos y métodos requeridos), presente en: guerrero.h, oponente.h
+Modelo un diagrama de clase útil para solucionar un problema utilizando UML, presente en: UMLjuegolucha.png
+Codifico métodos y atributos de clase correctamente. (constructores, getters, setters), presente en: guerrero.h, oponente.h
+Compruebo el acceso a los atributos y métodos de la clase (encapsulamiento correcto, mando a llamar los objetos de forma útil), presente en: guerrero.h, oponente.h, juego.h
+Impemento composición (o agregación) sieguiendo mi diagrama de clases, presente en: juego.h
+"Sigo estándares en todo mi código fuente: estilo, sangrías, comentarios, nombres, etc...", presente en todos los archivos: se tomo como ejemplo el proyecto demo.
+"Guardo correctamente los avances en commits durante la materia.": Se comento en los commits que no tenian comentarios para hacer la busqueda de versiones pasadas más sencillas, asimismo no hay archivos extra o versiones pasadas.
